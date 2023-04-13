@@ -1,11 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.net.*;
 
 import static javax.swing.BorderFactory.*;
 
 public class clientFrame {
 
-    JPanel individualPostPanel;
+     JPanel[] individualPostPanel;
     public clientFrame() {
         //frame
         JFrame frame = new JFrame();
@@ -40,21 +44,57 @@ public class clientFrame {
         postPanel.setLayout(new BoxLayout(postPanel, BoxLayout.Y_AXIS));
 
         //Individual posts
+        individualPostPanel = new JPanel[5];
 
-        individualPostPanel = new JPanel();
+        String[] calledQuestions = {"What is that", "When", "How", "where", "Whenever"};
+
+        for (int i = 0; i<5; i++){
+            individualPostPanel[i] = new JPanel();
+            individualPostPanel[i].setSize(1000,120);
+            //individualPostPanel[i].setBorder(createEtchedBorder());
+            individualPostPanel[i].setLayout(new GridBagLayout());
+            GridBagConstraints c = new GridBagConstraints();
+            c.fill = GridBagConstraints.VERTICAL;
 
 
-        postPanel.add(individualPostPanel);
+            //Display upvotes
+            JLabel upvotes = new JLabel("[Upvote count]");
+            c.gridx = 0;
+            c.gridy = 0;
+            c.weighty = 1;
+            c.weightx = 1;
+            c.ipadx = 100;
+            individualPostPanel[i].add(upvotes, c);
 
-        individualPostPanel.setSize(1000,120);
-        individualPostPanel.setBackground(Color.black);
+
+            JLabel answers = new JLabel("[Answers");
+            c.gridx = 0;
+            c.gridy = 1;
+            individualPostPanel[i].add(answers, c);
+
+            JButton question = new JButton(calledQuestions[i]);
+            //add identifier for event listener
 
 
-//        class DisplayPosts extends clientFrame{
-//            public DisplayPosts(){
-//
-//            }
-//        }
+            c.fill = GridBagConstraints.VERTICAL;
+            c.fill = GridBagConstraints.HORIZONTAL;
+            c.ipadx = 1000;
+            c.ipady = 90;
+            c.gridheight = 2;
+            c.gridx = 1;
+            c.gridy = 0;
+            question.setHorizontalTextPosition(JLabel.LEFT);
+            individualPostPanel[i].add(question, c);
+
+
+            question.addActionListener(e -> {
+                System.out.println(question.getText());
+            });
+            postPanel.add(individualPostPanel[i]);
+        }
+
+
+
 
 
         //Viewing more posts
@@ -73,4 +113,5 @@ public class clientFrame {
 
 
     }
+
 }
