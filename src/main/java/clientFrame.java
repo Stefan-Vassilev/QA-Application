@@ -9,9 +9,10 @@ import java.net.*;
 import static javax.swing.BorderFactory.*;
 
 public class clientFrame {
-
+    SpringApi control = new SpringApi();
      JPanel[] individualPostPanel;
     public clientFrame() {
+        //control.getViewable();
         //frame
         JFrame frame = new JFrame();
         frame.setSize(1300,800);
@@ -100,12 +101,10 @@ public class clientFrame {
             });
             postPanel.add(individualPostPanel[i]);
         }
-
-
         //Viewing more posts
         JPanel arrowPanel = new JPanel();
         JButton backButton = new JButton();
-            backButton.setText("Previous");
+            backButton.setText("Back");
         JButton forwardButton = new JButton();
             forwardButton.setText("Next");
         arrowPanel.add(backButton);
