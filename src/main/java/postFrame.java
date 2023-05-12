@@ -19,18 +19,93 @@ public class postFrame {
 
 
         JPanel questionPanel = new JPanel();
+        //createEtchedBorder()
         questionPanel.setBorder(createEtchedBorder());
+        questionPanel.setLayout(new GridBagLayout());
+        GridBagConstraints questionC = new GridBagConstraints();
         //questionPanel.setSize(1000,200);
-        questionFrame.add(questionPanel);
+        c.gridx = 0;
+        c.gridy = 0;
+        c.ipadx = 1000;
+        //c.ipady = 200;
+        c.weighty = 1;
+        questionPanel.setBackground(Color.red);
+        //questionPanel.setSize(1000,400);
+        //questionFrame.add(questionPanel,c);
 
-        JLabel questionText = new JLabel(question);
-        questionFrame.add(questionText);
-        JLabel questionDescription = new JLabel("[Description]");
-        questionFrame.add(questionDescription);
+        //code for the question itself
+        questionC.gridx = 1;
+        questionC.gridy = 0;
+        questionC.ipadx = 200;
+        questionC.weightx = 0.5;
+        //questionC.weightx = 0;
+        //questionC.gridwidth = 2;
+
+        //ATTEMPT AT USING JTEXTAREA
+        JTextArea questionTextArea = new JTextArea("Question: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",100, 100);
+        questionTextArea.setFont(new Font("verdana", Font.PLAIN, 20));
+        //questionTextArea.setPreferredSize(new Dimension(900,200));
+        //questionTextArea.setSize(900, 200);
+        questionTextArea.setEditable(false);
+        questionTextArea.setLineWrap(true);
+        questionTextArea.setWrapStyleWord(true);
+
+        //TEST
+        JScrollPane questionTextScroll = new JScrollPane(questionTextArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        questionTextScroll.setSize(new Dimension(400,300));
+
+        questionC.fill = GridBagConstraints.BOTH;
+        questionC.weighty = 0.5;
+
+        questionPanel.add(questionTextScroll, questionC);
+
+        //code for any extra description to the question
+//        JLabel questionDescription = new JLabel("<html>[Description: fafogasgdfiyagsfiyagsdfiaygsdfipyagsfdiyagsdfpsad gfagsdf sagd8 ftcsd 8sad cfsaidfcosudfgiasydgfpadsiyfgaysgdfiygaisydfgiaysgdfiyagsdfigasidyfg]</html>");
+        questionC.gridx = 1;
+        questionC.gridy = 1;
+        JTextArea descriptionTextArea = new JTextArea("[Description: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.");
+        descriptionTextArea.setSize(800,500);
+        descriptionTextArea.setEditable(false);
+        descriptionTextArea.setLineWrap(true);
+        descriptionTextArea.setWrapStyleWord(true);
+
+        JScrollPane descriptionTextScroll = new JScrollPane(descriptionTextArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        questionC.fill = GridBagConstraints.BOTH;
+        questionC.weighty = 0.5;
+
+        questionPanel.add(descriptionTextScroll, questionC);
+
+        //code for the vote count
+        JLabel voteLabel = new JLabel("               [Vote count]");
+        questionC.gridx = 0;
+        questionC.gridy = 0;
+        questionC.ipadx = 200;
+//        questionC.ipady = 50;
+        questionC.weightx = 0;
+        questionPanel.add(voteLabel, questionC);
+
+        //code for the answer count and whether or not it has a final answre
+        JLabel answerCountLabel = new JLabel("               [Answer count]");
+        questionC.gridx = 0;
+        questionC.gridy = 1;
+        questionC.ipadx = 200;
+        questionC.ipady = 100;
+        questionPanel.add(answerCountLabel, questionC);
 
 
-        JLabel label = new JLabel(question);
-        questionFrame.add(label);
+        questionFrame.add(questionPanel,c);
+
+        JPanel answerPanel = new JPanel();
+        //answerPanel.setSize(800,200);
+        c.gridy = 1;
+        //c.ipady = 100;
+
+        JLabel testAnswer = new JLabel("Test answer");
+        answerPanel.add(testAnswer);
+        answerPanel.setBackground(Color.black);
+
+        questionFrame.add(answerPanel, c);
+
 
         questionFrame.setVisible(true);
 
