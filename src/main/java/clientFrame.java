@@ -31,6 +31,10 @@ public class clientFrame {
 
         //button
         JButton button = new JButton("Post");
+        button.addActionListener(e ->{
+            System.out.println("Post is clicked");
+            AddPostWindow createPost = new AddPostWindow();
+        });
         button.setSize(30,30);
 
         generalPanel.add(button);

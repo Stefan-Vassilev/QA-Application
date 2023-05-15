@@ -106,7 +106,8 @@ public class postFrame {
         questionFrame.add(questionPanel,c);
 
 //      SETTING UP SCROLLPANE
-        JScrollPane answerScrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JScrollPane answerScrollPanel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        answerScrollPanel.setSize(500,500);
         JPanel answerPanel = new JPanel();
         answerPanel.setLayout(new BoxLayout(answerPanel, BoxLayout.Y_AXIS));
         JPanel individualAnswerPanel;
@@ -115,7 +116,7 @@ public class postFrame {
             answerPanel.add(formatAnswer("username " + i + ":   ", "answer  aosudfao sdhof asgf iasgdfi gasdgfouyasg dfug asugd fuagsduogf ouasgduo gfausgd fuogasudg fugasd uofgasuog dfguoa sduof gasuodg fagsd uofgasuydg                    + i"));
             answerPanel.add(Box.createRigidArea(new Dimension(0,50)));
         }
-        answerScrollPane.setViewportView(answerPanel);
+        answerScrollPanel.setViewportView(answerPanel);
 
         //answerScrollPane.setLayout(new BoxLayout());
 
@@ -124,19 +125,19 @@ public class postFrame {
 //        JPanel answerPanel = new JPanel();
 //        //answerPanel.setSize(800,200);
         c.gridy = 2;
-        //c.ipady = 100;
+        c.weighty = 1;
 //
 //        JLabel testAnswer = new JLabel("Test answer");
 //        answerPanel.add(testAnswer);
 //        answerPanel.setBackground(Color.black);
 //
-        questionFrame.add(answerScrollPane, c);
+        questionFrame.add(answerScrollPanel, c);
 
 //      adding answers
         JScrollPane addAnswerScroll = new JScrollPane();
         JPanel addAnswerPanel = new JPanel();
         JTextField usernameInput = new JTextField("Username");
-        JTextField answerInput = new JTextField("Answer");
+        JTextField answerInput = new JTextField("Answer                                     ");
         answerInput.setSize(300, 16);
         JButton finalAdd = new JButton("Add");
         addAnswerPanel.add(usernameInput);
