@@ -48,4 +48,22 @@ public class SpringApi {
 
 
     }
+
+    public JSONArray getAnswers(){
+        JSONArray jsonArray = new JSONArray();
+        JSONObject testAnswer1 = new JSONObject();
+        testAnswer1.put("username","bob");
+        testAnswer1.put("answer","test answer");
+        jsonArray.put(testAnswer1);
+
+        JSONObject testAnswer2 = new JSONObject();
+        testAnswer2.put("username","jeff");
+        testAnswer2.put("answer","test answer 2");
+        jsonArray.put(testAnswer2);
+        return jsonArray;
+
+
+
+
+    }
 }

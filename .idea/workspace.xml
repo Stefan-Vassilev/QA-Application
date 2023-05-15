@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Finished: clientFrame layout, created functionality to change to postFrame window, started creating SpringApi&#10;ToDo: Create postFrame GUI, create viewPost window, add functionality to both, finish SpringApi, make it call the URL">
+    <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Mostly finished layout for PostFrame, added AnswerClass,&#10;&#10;Todo: Create code to display the answers in the answerpanel/scrollpane">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AnswerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AnswerClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SpringApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SpringApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/postFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/postFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683627114305</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Mostly finished layout for PostFrame, added AnswerClass,&#10;&#10;Todo: Create code to display the answers in the answerpanel/scrollpane">
+      <created>1683884021868</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683884021868</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +173,7 @@
     <MESSAGE value="Finished GUI code, ready for displaying data responses" />
     <MESSAGE value="Finished: When question button clicked setVisible to off and open new frame, very basic GUI for the questions' pages (only frame and layout)" />
     <MESSAGE value="Finished: clientFrame layout, created functionality to change to postFrame window, started creating SpringApi&#10;ToDo: Create postFrame GUI, create viewPost window, add functionality to both, finish SpringApi, make it call the URL" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished: clientFrame layout, created functionality to change to postFrame window, started creating SpringApi&#10;ToDo: Create postFrame GUI, create viewPost window, add functionality to both, finish SpringApi, make it call the URL" />
+    <MESSAGE value="Mostly finished layout for PostFrame, added AnswerClass,&#10;&#10;Todo: Create code to display the answers in the answerpanel/scrollpane" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mostly finished layout for PostFrame, added AnswerClass,&#10;&#10;Todo: Create code to display the answers in the answerpanel/scrollpane" />
   </component>
 </project>

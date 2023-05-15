@@ -5,7 +5,11 @@ import java.awt.*;
 import static javax.swing.BorderFactory.createEtchedBorder;
 
 public class postFrame {
+    SpringApi man = new SpringApi();
     public postFrame(String question) {
+
+
+
         JFrame questionFrame = new JFrame();
         questionFrame.setSize(1300,800);
         questionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,6 +21,12 @@ public class postFrame {
         c.fill = GridBagConstraints.VERTICAL;
 
 
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(e -> {
+            questionFrame.dispose();
+
+        });
+        questionFrame.add(backButton);
 
         JPanel questionPanel = new JPanel();
         //createEtchedBorder()
@@ -25,7 +35,7 @@ public class postFrame {
         GridBagConstraints questionC = new GridBagConstraints();
         //questionPanel.setSize(1000,200);
         c.gridx = 0;
-        c.gridy = 0;
+        c.gridy = 1;
         c.ipadx = 1000;
         //c.ipady = 200;
         c.weighty = 1;
@@ -52,7 +62,7 @@ public class postFrame {
 
         //TEST
         JScrollPane questionTextScroll = new JScrollPane(questionTextArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        questionTextScroll.setSize(new Dimension(400,300));
+        questionTextScroll.setSize(new Dimension(400,200));
 
         questionC.fill = GridBagConstraints.BOTH;
         questionC.weighty = 0.5;
@@ -64,7 +74,7 @@ public class postFrame {
         questionC.gridx = 1;
         questionC.gridy = 1;
         JTextArea descriptionTextArea = new JTextArea("[Description: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.");
-        descriptionTextArea.setSize(800,500);
+        descriptionTextArea.setSize(800,200);
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setLineWrap(true);
         descriptionTextArea.setWrapStyleWord(true);
@@ -95,19 +105,62 @@ public class postFrame {
 
         questionFrame.add(questionPanel,c);
 
+//      SETTING UP SCROLLPANE
+        JScrollPane answerScrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         JPanel answerPanel = new JPanel();
-        //answerPanel.setSize(800,200);
-        c.gridy = 1;
+        answerPanel.setLayout(new BoxLayout(answerPanel, BoxLayout.Y_AXIS));
+        JPanel individualAnswerPanel;
+        JLabel testLabel;
+        for(int i = 0; i <= 50; i++){
+            answerPanel.add(formatAnswer("username " + i + ":   ", "answer  aosudfao sdhof asgf iasgdfi gasdgfouyasg dfug asugd fuagsduogf ouasgduo gfausgd fuogasudg fugasd uofgasuog dfguoa sduof gasuodg fagsd uofgasuydg                    + i"));
+            answerPanel.add(Box.createRigidArea(new Dimension(0,50)));
+        }
+        answerScrollPane.setViewportView(answerPanel);
+
+        //answerScrollPane.setLayout(new BoxLayout());
+
+
+//      PANEL VERSION
+//        JPanel answerPanel = new JPanel();
+//        //answerPanel.setSize(800,200);
+        c.gridy = 2;
         //c.ipady = 100;
+//
+//        JLabel testAnswer = new JLabel("Test answer");
+//        answerPanel.add(testAnswer);
+//        answerPanel.setBackground(Color.black);
+//
+        questionFrame.add(answerScrollPane, c);
 
-        JLabel testAnswer = new JLabel("Test answer");
-        answerPanel.add(testAnswer);
-        answerPanel.setBackground(Color.black);
+//      adding answers
+        JScrollPane addAnswerScroll = new JScrollPane();
+        JPanel addAnswerPanel = new JPanel();
+        JTextField usernameInput = new JTextField("Username");
+        JTextField answerInput = new JTextField("Answer");
+        answerInput.setSize(300, 16);
+        JButton finalAdd = new JButton("Add");
+        addAnswerPanel.add(usernameInput);
+        addAnswerPanel.add(answerInput);
+        addAnswerPanel.add(finalAdd);
 
-        questionFrame.add(answerPanel, c);
+        addAnswerScroll.setViewportView(addAnswerPanel);
+
+        c.gridy = 3;
+        questionFrame.add(addAnswerPanel,c);
+
+
 
 
         questionFrame.setVisible(true);
 
+    }
+
+    public JPanel formatAnswer(String username, String answer){
+        JPanel indAnswerPanel = new JPanel();
+        JLabel usernameLabel = new JLabel(username);
+        JLabel answerLabel = new JLabel(answer);
+        indAnswerPanel.add(usernameLabel);
+        indAnswerPanel.add(answerLabel);
+        return indAnswerPanel;
     }
 }

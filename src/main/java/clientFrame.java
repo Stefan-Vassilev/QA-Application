@@ -90,11 +90,12 @@ public class clientFrame {
 
 
             question.addActionListener(e -> {
-                System.out.println(question.getText());
+                System.out.println(e);
                 //frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 
 //              Opens seperate window/frame which allows the user to view the question/answers
-                frame.setVisible(false);
+//              Couldn't call this frame from the new frame so chose to not hide this frame
+                //frame.setVisible(false);
                 postFrame viewingPosts = new postFrame(question.getText());
 
 
