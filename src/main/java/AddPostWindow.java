@@ -1,6 +1,5 @@
 import javax.swing.*;
 
-
 public class AddPostWindow {
     SpringApi man = new SpringApi();
     public AddPostWindow() {

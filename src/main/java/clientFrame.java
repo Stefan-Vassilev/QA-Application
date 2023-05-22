@@ -97,7 +97,6 @@ public class clientFrame {
 
                 postFrame viewingPosts = new postFrame(id);
 
-
             });
             postPanel.add(individualPostPanel[i]);
         }

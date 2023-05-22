@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Final client application">
+    <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Actual final application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddPostWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddPostWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SpringApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SpringApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/postFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/postFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684749306108</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Actual final application">
+      <created>1684750182971</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1684750182971</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +201,7 @@
     <MESSAGE value="Scroll pane for the answers, added panel for adding answers, need to add functionality to the button which gets the content for the answer, need to display answers better" />
     <MESSAGE value="Finished postFrame, clientFrame, AddPostWindow, need functionality and connectivity to server" />
     <MESSAGE value="Final client application" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final client application" />
+    <MESSAGE value="Actual final application" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actual final application" />
   </component>
 </project>

@@ -62,7 +62,6 @@ public class postFrame {
         questionC.weighty = 0.5;
 
         questionPanel.add(questionTextScroll, questionC);
-
         //code for any extra description to the question
         questionC.gridx = 1;
         questionC.gridy = 1;

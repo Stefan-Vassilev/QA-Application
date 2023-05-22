@@ -25,7 +25,6 @@ public class SpringApi {
 
         return postJson.toString();
     }
-
     public void callAddAnswer(String questionID, String username, String answer){
         restTemplate.getForEntity(apiUrl + "/post/" + questionID + "/" + answer + "/description/" + username, String.class);
     }
