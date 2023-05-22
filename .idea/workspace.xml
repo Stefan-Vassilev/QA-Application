@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Actual final application">
+    <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Client side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/postFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/postFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684750182971</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Client side">
+      <created>1684750863859</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1684750863859</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,6 +210,7 @@
     <MESSAGE value="Finished postFrame, clientFrame, AddPostWindow, need functionality and connectivity to server" />
     <MESSAGE value="Final client application" />
     <MESSAGE value="Actual final application" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actual final application" />
+    <MESSAGE value="Client side" />
+    <option name="LAST_COMMIT_MESSAGE" value="Client side" />
   </component>
 </project>
