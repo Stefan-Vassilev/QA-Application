@@ -1,6 +1,5 @@
 import javax.swing.*;
 
-import java.awt.*;
 
 public class AddPostWindow {
     SpringApi man = new SpringApi();
@@ -14,9 +13,7 @@ public class AddPostWindow {
         generalPanel.setLayout(new BoxLayout(generalPanel, BoxLayout.Y_AXIS));
 
         JButton backButton = new JButton("Back");
-        backButton.addActionListener(e -> {
-            addFrame.dispose();
-        });
+        backButton.addActionListener(e -> addFrame.dispose());
         generalPanel.add(backButton);
 
         JTextField questionField = new JTextField("Add question");

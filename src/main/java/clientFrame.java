@@ -1,6 +1,5 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.web.client.ResourceAccessException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,8 +23,6 @@ public class clientFrame {
         JPanel generalPanel = new JPanel();
         generalPanel.setSize(40,40);
         generalPanel.setBorder(createEmptyBorder(30,30,10,10));
-        //panel.setLayout(new GridLayout(0,1));
-        //button
         JButton button = new JButton("Post");
         button.addActionListener(e ->{
             AddPostWindow createPost = new AddPostWindow();
@@ -36,7 +33,6 @@ public class clientFrame {
         frame.add(generalPanel, BorderLayout.NORTH);
 
 //Question posts Section
-        //Parent panel
         JPanel postPanel = new JPanel();
         frame.add(postPanel, BorderLayout.CENTER);
         postPanel.setSize(1300,654);
@@ -46,6 +42,7 @@ public class clientFrame {
         //Individual posts
         individualPostPanel = new JPanel[5];
         JSONArray jsonArray;
+//      informs the user if the server side of the application isn't up
         try {
             jsonArray = new JSONArray(control.getViewable());
         }catch (RuntimeException e){
@@ -68,7 +65,6 @@ public class clientFrame {
 
             individualPostPanel[i] = new JPanel();
             individualPostPanel[i].setSize(1000,120);
-            //individualPostPanel[i].setBorder(createEtchedBorder());
             individualPostPanel[i].setLayout(new GridBagLayout());
             GridBagConstraints c = new GridBagConstraints();
             c.fill = GridBagConstraints.VERTICAL;
@@ -84,7 +80,6 @@ public class clientFrame {
 
             String questionText = temp.get("question").toString();
             JButton question = new JButton(questionText);
-            //add identifier for event listener
 
 
             c.fill = GridBagConstraints.VERTICAL;
@@ -110,8 +105,6 @@ public class clientFrame {
         JPanel arrowPanel = new JPanel();
         JButton backButton = new JButton();
         backButton.setText("Back");
-
-        //TODO MAKE MOVING BETWEEN PAGES FUNCTIONAL
 
         backButton.addActionListener(e -> {
             if (page <= 1) {

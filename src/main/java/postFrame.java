@@ -23,10 +23,7 @@ public class postFrame {
 
 
         JButton backButton = new JButton("Back");
-        backButton.addActionListener(e -> {
-            questionFrame.dispose();
-
-        });
+        backButton.addActionListener(e -> questionFrame.dispose());
         questionFrame.add(backButton);
 
         JPanel questionPanel = new JPanel();
@@ -53,8 +50,6 @@ public class postFrame {
         //ATTEMPT AT USING JTEXTAREA
         JTextArea questionTextArea = new JTextArea(postJson.get("question").toString(),100, 100);
         questionTextArea.setFont(new Font("verdana", Font.PLAIN, 20));
-        //questionTextArea.setPreferredSize(new Dimension(900,200));
-        //questionTextArea.setSize(900, 200);
         questionTextArea.setEditable(false);
         questionTextArea.setLineWrap(true);
         questionTextArea.setWrapStyleWord(true);
@@ -69,7 +64,6 @@ public class postFrame {
         questionPanel.add(questionTextScroll, questionC);
 
         //code for any extra description to the question
-//        JLabel questionDescription = new JLabel("<html>[Description: fafogasgdfiyagsfiyagsdfiaygsdfipyagsfdiyagsdfpsad gfagsdf sagd8 ftcsd 8sad cfsaidfcosudfgiasydgfpadsiyfgaysgdfiygaisydfgiaysgdfiyagsdfigasidyfg]</html>");
         questionC.gridx = 1;
         questionC.gridy = 1;
         JTextArea descriptionTextArea = new JTextArea("[description");
@@ -99,13 +93,10 @@ public class postFrame {
 
         questionFrame.add(questionPanel,c);
 
-//      SETTING UP SCROLLPANE
         JScrollPane answerScrollPanel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         answerScrollPanel.setSize(500,500);
         JPanel answerPanel = new JPanel();
         answerPanel.setLayout(new BoxLayout(answerPanel, BoxLayout.Y_AXIS));
-        JPanel individualAnswerPanel;
-        JLabel testLabel;
         for(int i = 0; i < answersCount - 1; i++){
             answerPanel.add(formatAnswer(answersArray.getJSONObject(i).get("username").toString() + "     |     ", answersArray.getJSONObject(i).get("answer").toString()));
             answerPanel.add(Box.createRigidArea(new Dimension(0,50)));
@@ -115,7 +106,6 @@ public class postFrame {
         c.gridy = 2;
         c.weighty = 1;
 
-//
         questionFrame.add(answerScrollPanel, c);
 
 //      adding answers
@@ -125,9 +115,7 @@ public class postFrame {
         JTextField answerInput = new JTextField("Answer                                     ");
         answerInput.setSize(300, 16);
         JButton finalAdd = new JButton("Add");
-        finalAdd.addActionListener(e -> {
-            man.callAddAnswer(postJson.get("id").toString(), usernameInput.getText(), answerInput.getText());
-        });
+        finalAdd.addActionListener(e -> man.callAddAnswer(postJson.get("id").toString(), usernameInput.getText(), answerInput.getText()));
         addAnswerPanel.add(usernameInput);
         addAnswerPanel.add(answerInput);
         addAnswerPanel.add(finalAdd);
