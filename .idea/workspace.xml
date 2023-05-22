@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Scroll pane for the answers, added panel for adding answers, need to add functionality to the button which gets the content for the answer, need to display answers better">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AddPostWindow.java" afterDir="false" />
+    <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Finished postFrame, clientFrame, AddPostWindow, need functionality and connectivity to server">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20230227.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_commons_1_10_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_commons_1_10_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_observation_1_10_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_observation_1_10_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_6_0_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_6_0_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_6_0_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_6_0_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_6_0_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_6_0_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_6_0_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_6_0_8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AnswerClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-A-Platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Q-A-Platform.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AddPostWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddPostWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SpringApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SpringApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clientFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/postFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/postFrame.java" afterDir="false" />
     </list>
@@ -147,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684150591467</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Finished postFrame, clientFrame, AddPostWindow, need functionality and connectivity to server">
+      <created>1684152021843</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684152021843</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +201,7 @@
     <MESSAGE value="Finished: clientFrame layout, created functionality to change to postFrame window, started creating SpringApi&#10;ToDo: Create postFrame GUI, create viewPost window, add functionality to both, finish SpringApi, make it call the URL" />
     <MESSAGE value="Mostly finished layout for PostFrame, added AnswerClass,&#10;&#10;Todo: Create code to display the answers in the answerpanel/scrollpane" />
     <MESSAGE value="Scroll pane for the answers, added panel for adding answers, need to add functionality to the button which gets the content for the answer, need to display answers better" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scroll pane for the answers, added panel for adding answers, need to add functionality to the button which gets the content for the answer, need to display answers better" />
+    <MESSAGE value="Finished postFrame, clientFrame, AddPostWindow, need functionality and connectivity to server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished postFrame, clientFrame, AddPostWindow, need functionality and connectivity to server" />
   </component>
 </project>

@@ -1,3 +1,6 @@
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -6,16 +9,14 @@ import static javax.swing.BorderFactory.createEtchedBorder;
 
 public class postFrame {
     SpringApi man = new SpringApi();
-    public postFrame(String question) {
+    public postFrame(String id) {
 
-
+        JSONObject postJson = new JSONObject(man.callViewPost(id));
 
         JFrame questionFrame = new JFrame();
         questionFrame.setSize(1300,800);
         questionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         questionFrame.setResizable(false);
-        //.getContentPane() fixes 'BoxLayout' can't be shared error
-        //questionFrame.setLayout(new BoxLayout(questionFrame.getContentPane(), BoxLayout.Y_AXIS));
         questionFrame.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.VERTICAL;
@@ -29,16 +30,14 @@ public class postFrame {
         questionFrame.add(backButton);
 
         JPanel questionPanel = new JPanel();
-        //createEtchedBorder()
         questionPanel.setBorder(createEtchedBorder());
         questionPanel.setLayout(new GridBagLayout());
         GridBagConstraints questionC = new GridBagConstraints();
-        //questionPanel.setSize(1000,200);
         c.gridx = 0;
         c.gridy = 1;
         c.ipadx = 1000;
-        //c.ipady = 200;
         c.weighty = 1;
+        c.weightx = 1;
         questionPanel.setBackground(Color.red);
         //questionPanel.setSize(1000,400);
         //questionFrame.add(questionPanel,c);
@@ -52,7 +51,7 @@ public class postFrame {
         //questionC.gridwidth = 2;
 
         //ATTEMPT AT USING JTEXTAREA
-        JTextArea questionTextArea = new JTextArea("Question: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",100, 100);
+        JTextArea questionTextArea = new JTextArea(postJson.get("question").toString(),100, 100);
         questionTextArea.setFont(new Font("verdana", Font.PLAIN, 20));
         //questionTextArea.setPreferredSize(new Dimension(900,200));
         //questionTextArea.setSize(900, 200);
@@ -73,7 +72,7 @@ public class postFrame {
 //        JLabel questionDescription = new JLabel("<html>[Description: fafogasgdfiyagsfiyagsdfiaygsdfipyagsfdiyagsdfpsad gfagsdf sagd8 ftcsd 8sad cfsaidfcosudfgiasydgfpadsiyfgaysgdfiygaisydfgiaysgdfiyagsdfigasidyfg]</html>");
         questionC.gridx = 1;
         questionC.gridy = 1;
-        JTextArea descriptionTextArea = new JTextArea("[Description: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.");
+        JTextArea descriptionTextArea = new JTextArea("[description");
         descriptionTextArea.setSize(800,200);
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setLineWrap(true);
@@ -85,21 +84,16 @@ public class postFrame {
 
         questionPanel.add(descriptionTextScroll, questionC);
 
-        //code for the vote count
-        JLabel voteLabel = new JLabel("               [Vote count]");
-        questionC.gridx = 0;
-        questionC.gridy = 0;
-        questionC.ipadx = 200;
-//        questionC.ipady = 50;
-        questionC.weightx = 0;
-        questionPanel.add(voteLabel, questionC);
+        JSONArray answersArray = new JSONArray(postJson.get("answers").toString());
 
-        //code for the answer count and whether or not it has a final answre
-        JLabel answerCountLabel = new JLabel("               [Answer count]");
+        int answersCount = answersArray.length();
+
+        JLabel answerCountLabel = new JLabel("               " + answersCount + " answers");
         questionC.gridx = 0;
         questionC.gridy = 1;
         questionC.ipadx = 200;
         questionC.ipady = 100;
+        questionC.weightx = 0;
         questionPanel.add(answerCountLabel, questionC);
 
 
@@ -112,24 +106,15 @@ public class postFrame {
         answerPanel.setLayout(new BoxLayout(answerPanel, BoxLayout.Y_AXIS));
         JPanel individualAnswerPanel;
         JLabel testLabel;
-        for(int i = 0; i <= 50; i++){
-            answerPanel.add(formatAnswer("username " + i + ":   ", "answer  aosudfao sdhof asgf iasgdfi gasdgfouyasg dfug asugd fuagsduogf ouasgduo gfausgd fuogasudg fugasd uofgasuog dfguoa sduof gasuodg fagsd uofgasuydg                    + i"));
+        for(int i = 0; i < answersCount - 1; i++){
+            answerPanel.add(formatAnswer(answersArray.getJSONObject(i).get("username").toString() + "     |     ", answersArray.getJSONObject(i).get("answer").toString()));
             answerPanel.add(Box.createRigidArea(new Dimension(0,50)));
         }
         answerScrollPanel.setViewportView(answerPanel);
 
-        //answerScrollPane.setLayout(new BoxLayout());
-
-
-//      PANEL VERSION
-//        JPanel answerPanel = new JPanel();
-//        //answerPanel.setSize(800,200);
         c.gridy = 2;
         c.weighty = 1;
-//
-//        JLabel testAnswer = new JLabel("Test answer");
-//        answerPanel.add(testAnswer);
-//        answerPanel.setBackground(Color.black);
+
 //
         questionFrame.add(answerScrollPanel, c);
 
@@ -140,6 +125,9 @@ public class postFrame {
         JTextField answerInput = new JTextField("Answer                                     ");
         answerInput.setSize(300, 16);
         JButton finalAdd = new JButton("Add");
+        finalAdd.addActionListener(e -> {
+            man.callAddAnswer(postJson.get("id").toString(), usernameInput.getText(), answerInput.getText());
+        });
         addAnswerPanel.add(usernameInput);
         addAnswerPanel.add(answerInput);
         addAnswerPanel.add(finalAdd);

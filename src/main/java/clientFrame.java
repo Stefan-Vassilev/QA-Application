@@ -1,44 +1,38 @@
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.web.client.ResourceAccessException;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.io.*;
-import java.net.*;
 
 import static javax.swing.BorderFactory.*;
 
 public class clientFrame {
     SpringApi control = new SpringApi();
      JPanel[] individualPostPanel;
+    int page = 1;
+
     public clientFrame() {
-        //control.getViewable();
+
         //frame
         JFrame frame = new JFrame();
         frame.setSize(1300,800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
-//Create posts and Hostname
+//Create posts
         JPanel generalPanel = new JPanel();
         generalPanel.setSize(40,40);
         generalPanel.setBorder(createEmptyBorder(30,30,10,10));
         //panel.setLayout(new GridLayout(0,1));
-
-        //label
-        JLabel label = new JLabel("Hostname");
-        label.setSize(30,30);
-
         //button
         JButton button = new JButton("Post");
         button.addActionListener(e ->{
-            System.out.println("Post is clicked");
             AddPostWindow createPost = new AddPostWindow();
         });
         button.setSize(30,30);
 
         generalPanel.add(button);
-        generalPanel.add(label);
         frame.add(generalPanel, BorderLayout.NORTH);
 
 //Question posts Section
@@ -51,10 +45,27 @@ public class clientFrame {
 
         //Individual posts
         individualPostPanel = new JPanel[5];
+        JSONArray jsonArray;
+        try {
+            jsonArray = new JSONArray(control.getViewable());
+        }catch (RuntimeException e){
+            JFrame exceptionFrame = new JFrame();
+            exceptionFrame.setSize(500,300);
+            exceptionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JLabel label = new JLabel("Server is not up");
+            exceptionFrame.add(label);
+            exceptionFrame.pack();
+            exceptionFrame.setSize(500,300);
+            exceptionFrame.setVisible(true);
 
-        String[] calledQuestions = {"What is that", "When", "How", "where", "Whenever"};
+            throw new RuntimeException(e);
 
+        }
+        JSONObject temp;
         for (int i = 0; i<5; i++){
+
+            temp = jsonArray.getJSONObject(i);
+
             individualPostPanel[i] = new JPanel();
             individualPostPanel[i].setSize(1000,120);
             //individualPostPanel[i].setBorder(createEtchedBorder());
@@ -63,22 +74,16 @@ public class clientFrame {
             c.fill = GridBagConstraints.VERTICAL;
 
 
-            //Display upvotes
-            JLabel upvotes = new JLabel("[Upvote count]");
-            c.gridx = 0;
-            c.gridy = 0;
-            c.weighty = 1;
-            c.weightx = 1;
-            c.ipadx = 100;
-            individualPostPanel[i].add(upvotes, c);
 
-
-            JLabel answers = new JLabel("[Answers");
+            JSONArray answersArray = new JSONArray(temp.get("answers").toString());
+            JLabel answers = new JLabel(answersArray.length() + " answers");
             c.gridx = 0;
             c.gridy = 1;
             individualPostPanel[i].add(answers, c);
 
-            JButton question = new JButton(calledQuestions[i]);
+
+            String questionText = temp.get("question").toString();
+            JButton question = new JButton(questionText);
             //add identifier for event listener
 
 
@@ -92,15 +97,10 @@ public class clientFrame {
             question.setHorizontalTextPosition(JLabel.LEFT);
             individualPostPanel[i].add(question, c);
 
-
+            String id = temp.get("id").toString();
             question.addActionListener(e -> {
-                System.out.println(e);
-                //frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 
-//              Opens seperate window/frame which allows the user to view the question/answers
-//              Couldn't call this frame from the new frame so chose to not hide this frame
-                //frame.setVisible(false);
-                postFrame viewingPosts = new postFrame(question.getText());
+                postFrame viewingPosts = new postFrame(id);
 
 
             });
@@ -109,9 +109,25 @@ public class clientFrame {
         //Viewing more posts
         JPanel arrowPanel = new JPanel();
         JButton backButton = new JButton();
-            backButton.setText("Back");
+        backButton.setText("Back");
+
+        //TODO MAKE MOVING BETWEEN PAGES FUNCTIONAL
+
+        backButton.addActionListener(e -> {
+            if (page <= 1) {
+                page = page;
+            }else {
+                page = page - 1;
+            }
+            reloadContentPrevious(page);
+        });
         JButton forwardButton = new JButton();
-            forwardButton.setText("Next");
+        forwardButton.setText("Next");
+        forwardButton.addActionListener(e -> {
+            page = page + 1;
+            reloadContentNext(page);
+
+        });
         arrowPanel.add(backButton);
         arrowPanel.add(forwardButton);
 
@@ -123,6 +139,38 @@ public class clientFrame {
 
 
 
+    }
+    public void reloadContentNext(int page){
+
+        JButton tempButton;
+        JLabel tempLabel;
+        JSONObject tempObject;
+        JSONArray tempArray = new JSONArray(control.callNextPage(page));
+
+        for (int i = 0; i < 5; i++){
+            tempObject = tempArray.getJSONObject(i);
+            tempButton = (JButton) individualPostPanel[i].getComponent(1);
+            tempButton.setText(tempObject.get("question").toString());
+
+            tempLabel = (JLabel) individualPostPanel[i].getComponent(0);
+            JSONArray tempAnswerArray = new JSONArray(tempObject.get("answers").toString());
+            tempLabel.setText(tempAnswerArray.length() + " answers");
+        }
+    }
+    public void reloadContentPrevious(int page){
+        JButton tempButton;
+        JLabel tempLabel;
+        JSONObject tempObject;
+        JSONArray tempArray = new JSONArray(control.callPreviousPage(page));
+        for (int i = 0; i < 5; i++){
+            tempObject = tempArray.getJSONObject(i);
+            tempButton = (JButton) individualPostPanel[i].getComponent(1);
+            tempButton.setText(tempObject.get("question").toString());
+
+            tempLabel = (JLabel) individualPostPanel[i].getComponent(0);
+            JSONArray tempAnswerArray = new JSONArray(tempObject.get("answers").toString());
+            tempLabel.setText(tempAnswerArray.length() + " answers");
+        }
     }
 
 

@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AddPostWindow {
+    SpringApi man = new SpringApi();
     public AddPostWindow() {
         JFrame addFrame = new JFrame();
         addFrame.setSize(1300,800);
@@ -25,6 +26,10 @@ public class AddPostWindow {
         generalPanel.add(descriptionField);
 
         JButton post = new JButton("Submit");
+        post.addActionListener(e -> {
+            man.callCreatePost(questionField.getText(), descriptionField.getText());
+            addFrame.dispose();
+        });
         generalPanel.add(post);
 
 
