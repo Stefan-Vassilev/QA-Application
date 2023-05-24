@@ -95,7 +95,7 @@ public class postFrame {
         answerScrollPanel.setSize(500,500);
         JPanel answerPanel = new JPanel();
         answerPanel.setLayout(new BoxLayout(answerPanel, BoxLayout.Y_AXIS));
-        for(int i = 0; i < answersCount - 1; i++){
+        for(int i = 0; i < answersCount; i++){
             answerPanel.add(formatAnswer(answersArray.getJSONObject(i).get("username").toString() + "     |     ", answersArray.getJSONObject(i).get("answer").toString()));
             answerPanel.add(Box.createRigidArea(new Dimension(0,50)));
         }

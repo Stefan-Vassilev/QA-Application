@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4be44dc3-89bb-4cc7-80b1-e27accb6a997" name="Changes" comment="Client side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SpringApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SpringApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/postFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/postFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddPostWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AddPostWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SpringApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clientFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clientFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/postFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/postFrame.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684750863859</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Client side">
+      <created>1684753649270</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684753649271</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
